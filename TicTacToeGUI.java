@@ -1,10 +1,6 @@
-import java.awt.Dimension;
-import java.awt.Font;
+import java.awt.*;
 
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
+import javax.swing.*;
 
 public class TicTacToeGUI extends JFrame{
     public TicTacToeGUI() {
@@ -31,7 +27,7 @@ public class TicTacToeGUI extends JFrame{
             JButton bottomMiddle = new JButton("");
             JButton bottomRight = new JButton("");
             JLabel text = new JLabel("Player 1 place an X");
-            
+            text.setActionListener()
             
             this.add(topLeft);
             this.add(topMiddle);
