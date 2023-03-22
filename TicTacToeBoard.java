@@ -74,4 +74,8 @@ public class TicTacToeBoard {
             return 0;
         }
     }
+
+    public int[][] getBoard() {
+        return board;
+    }
 }
