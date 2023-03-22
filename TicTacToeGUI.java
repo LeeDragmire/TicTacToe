@@ -1,3 +1,4 @@
+
 import java.awt.*;
 
 import javax.swing.*;
@@ -12,7 +13,7 @@ public class TicTacToeGUI extends JFrame{
         this.setVisible(true);
     }
 
-    public class TicTacToePanel extends JPanel{
+    public class TicTacToePanel extends JPanel {
         public TicTacToePanel() {
             this.setSize(500, 600);
             this.setPreferredSize(new Dimension(500, 600));
@@ -27,7 +28,33 @@ public class TicTacToeGUI extends JFrame{
             JButton bottomMiddle = new JButton("");
             JButton bottomRight = new JButton("");
             JLabel text = new JLabel("Player 1 place an X");
-            text.setActionListener()
+            topLeft.addActionListener(e -> {
+                
+            });
+            topMiddle.addActionListener(e -> {
+                
+            });
+            topRight.addActionListener(e -> {
+                
+            });
+            middleLeft.addActionListener(e -> {
+                
+            });
+            middle.addActionListener(e -> {
+                
+            });
+            middleRight.addActionListener(e -> {
+                
+            });
+            bottomLeft.addActionListener(e -> {
+                
+            });
+            bottomMiddle.addActionListener(e -> {
+                
+            });
+            bottomRight.addActionListener(e -> {
+                
+            });
             
             this.add(topLeft);
             this.add(topMiddle);
@@ -50,6 +77,15 @@ public class TicTacToeGUI extends JFrame{
             bottomRight.setBounds(300, 400, 150, 150);
             text.setBounds(30, 0, 500, 60);
             text.setFont(new Font("Serif", Font.PLAIN, 50));
+            topLeft.setFont(new Font("Serif", Font.PLAIN, 50));
+            topMiddle.setFont(new Font("Serif", Font.PLAIN, 50));
+            topRight.setFont(new Font("Serif", Font.PLAIN, 50));
+            middleLeft.setFont(new Font("Serif", Font.PLAIN, 50));
+            middle.setFont(new Font("Serif", Font.PLAIN, 50));
+            middleRight.setFont(new Font("Serif", Font.PLAIN, 50));
+            bottomLeft.setFont(new Font("Serif", Font.PLAIN, 50));
+            bottomMiddle.setFont(new Font("Serif", Font.PLAIN, 50));
+            bottomRight.setFont(new Font("Serif", Font.PLAIN, 50));
         }
     }
 
