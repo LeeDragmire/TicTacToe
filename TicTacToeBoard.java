@@ -1,7 +1,11 @@
 public class TicTacToeBoard {
 
     public int[][] board() {
-        int[][] board = new int[3][3];
+        int[][] board = new int[][] {
+            {0, 0, 0},
+            {0, 0, 0}, 
+            {0, 0, 0}};
+        return board;
     }
 
     public boolean isValidMove(int r, int c) {
@@ -43,11 +47,30 @@ public class TicTacToeBoard {
            || (board()[0][0] == 2 && board()[1][1] == 2 && board()[2][2] == 2) ||
            (board()[0][2] == 2 && board()[1][1] == 2 && board()[2][0] == 2)) {
              return 2;
-           } else if ()
+           }
+        int tie = 0;
+        for (int r = 0; r < board().length; r++) {
+            for (int c = 0; c < board()[r].length; c++) {
+                if (!isValidMove(r, c)) {
+                    tie++;
+                }
+            }
+        }
+        if (tie == 9) {
+            return -1;
+        } else {
+            return 0;
+        }
 
     }
 
     public int getCellContents(int r, int c) {
-
+        if (board()[r][c] == 1) {
+            return 1;
+        } else if (board()[r][c] == 2) {
+            return 2;
+        } else {
+            return 0;
+        }
     }
 }
