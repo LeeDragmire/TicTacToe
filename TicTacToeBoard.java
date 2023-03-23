@@ -18,14 +18,14 @@ public class TicTacToeBoard {
     }
 
     public void makeMove(int r, int c, int player) {
+        if (!isValidMove(r, c)) {
+            System.out.print("That spot is already taken, please make another move.");
+        }
         if (player == 1 && isValidMove(r,c)) {
             board[r][c] = 1;
         }
         if (player == 2 && isValidMove(r,c)) {
             board[r][c] = 2;
-        }
-        if (!isValidMove(r, c)) {
-            System.out.print("That spot is already taken, please make another move.");
         }
     }
 
