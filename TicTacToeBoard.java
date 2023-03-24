@@ -102,3 +102,16 @@ public class TicTacToeBoard {
         return result;
     }
 }
+/* In winCords
+ *  1 = top left     [0,0]
+ *  2 = top mid      [0,1]
+ *  3 = top right    [0,2]
+ *  4 = middle left  [1,0]
+ *  5 = center       [1,1]
+ *  6 = middle right [1,2]
+ *  7 = bottom left  [2,0]
+ *  8 = bottom mid   [2,1]
+ *  9 = bottom right [2,2]
+ * 
+ *  ex: if winCords == {1,3}, the winning points = top left and top right, straight across the top win
+ */
