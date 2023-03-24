@@ -78,4 +78,27 @@ public class TicTacToeBoard {
     public int[][] getBoard() {
         return board;
     }
+
+    public int[] winCords(int[][] board) {
+        board = getBoard();
+        int[] result = new int[2];
+        if (board[0][0] == 1 && board[0][1] == 1 && board[0][2] == 1) {
+            result = new int[] {1,3};
+        } else if (board[1][0] == 1 && board[1][1] == 1 && board[1][2] == 1) {
+            result = new int[] {4,6};
+        } else if (board[2][0] == 1 && board[2][1] == 1 && board[2][2] == 1) {
+            result = new int[] {7,9};
+        } else if (board[0][0] == 1 && board[1][0] == 1 && board[2][0] == 1) {
+            result = new int[] {1,7};
+        } else if (board[0][1] == 1 && board[1][1] == 1 && board[2][1] == 1) {
+            result = new int[] {2,8};
+        } else if (board[0][2] == 1 && board[1][2] == 1 && board[2][2] == 1) {
+            result = new int[] {3,9};
+        } else if (board[0][0] == 1 && board[1][1] == 1 && board[2][2] == 1) {
+            result = new int[] {1,9};
+        } else if (board[0][2] == 1 && board[1][1] == 1 && board[2][0] == 1) {
+            result = new int[] {3,7};
+        }
+        return result;
+    }
 }
