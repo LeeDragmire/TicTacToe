@@ -61,14 +61,14 @@ public class TicTacToeGUI extends JFrame{
 
         void drawLine(Graphics g) {
             Graphics2D g2d = (Graphics2D) g;
-            if (theBoard.winCords(theBoard.getBoard())[0] == 1 && theBoard.winCords(theBoard.getBoard())[1] == 3) {
+            if (theBoard.winCords(theBoard.getBoard())[0][0] == 0 && theBoard.winCords(theBoard.getBoard())[1][1] == 2) {
                 if (theBoard.getGameStatus() == 1) {
                     g2d.setColor(Color.RED);
                 } else if (theBoard.getGameStatus() == 2) {
                     g2d.setColor(Color.BLUE);
                 }
                 g2d.setStroke(new BasicStroke(5));
-                g2d.drawLine(75, 75, 375, 175);
+                // g2d.drawLine(75, 75, 375, 175);
             }
         }
 
@@ -107,8 +107,7 @@ public class TicTacToeGUI extends JFrame{
                     bottomMiddle.setEnabled(false);
                     bottomRight.setEnabled(false);
                 }
-                repaint();
-                repaint();
+                // repaint();
             });
             topMiddle.addActionListener(e -> {
                 buttonPress(topMiddle, text, theBoard, 0, 1);
@@ -123,8 +122,7 @@ public class TicTacToeGUI extends JFrame{
                     bottomMiddle.setEnabled(false);
                     bottomRight.setEnabled(false);
                 }
-                repaint();
-                repaint();
+                // repaint();
             });
             topRight.addActionListener(e -> {
                 buttonPress(topRight, text, theBoard, 0, 2);
@@ -140,8 +138,7 @@ public class TicTacToeGUI extends JFrame{
                     bottomMiddle.setEnabled(false);
                     bottomRight.setEnabled(false);
                 }
-                repaint();
-                repaint();
+                // repaint();
             });
             middleLeft.addActionListener(e -> {
                 buttonPress(middleLeft, text, theBoard, 1, 0);
@@ -156,8 +153,7 @@ public class TicTacToeGUI extends JFrame{
                     bottomMiddle.setEnabled(false);
                     bottomRight.setEnabled(false);
                 }
-                repaint();
-                repaint();
+                // repaint();
             });
             middle.addActionListener(e -> {
                 buttonPress(middle, text, theBoard, 1, 1);
@@ -172,8 +168,7 @@ public class TicTacToeGUI extends JFrame{
                     bottomMiddle.setEnabled(false);
                     bottomRight.setEnabled(false);
                 }
-                repaint();
-                repaint();
+                // repaint();
             });
             middleRight.addActionListener(e -> {
                 buttonPress(middleRight, text, theBoard, 1, 2);
@@ -188,8 +183,7 @@ public class TicTacToeGUI extends JFrame{
                     bottomMiddle.setEnabled(false);
                     bottomRight.setEnabled(false);
                 }
-                repaint();
-                repaint();
+                // repaint();
             });
             bottomLeft.addActionListener(e -> {
                 buttonPress(bottomLeft, text, theBoard, 2, 0);
@@ -204,8 +198,7 @@ public class TicTacToeGUI extends JFrame{
                     bottomMiddle.setEnabled(false);
                     bottomRight.setEnabled(false);
                 }
-                repaint();
-                repaint();
+                // repaint();
             });
             bottomMiddle.addActionListener(e -> {
                 buttonPress(bottomMiddle, text, theBoard, 2, 1);
@@ -220,8 +213,7 @@ public class TicTacToeGUI extends JFrame{
                     bottomMiddle.setEnabled(false);
                     bottomRight.setEnabled(false);
                 }
-                repaint();
-                repaint();
+                // repaint();
             });
             bottomRight.addActionListener(e -> {
                 buttonPress(bottomRight, text, theBoard, 2, 2);
@@ -236,8 +228,7 @@ public class TicTacToeGUI extends JFrame{
                     bottomMiddle.setEnabled(false);
                     bottomRight.setEnabled(false);
                 }
-                repaint();
-                repaint();
+                // repaint();
             });
             restartButton.addActionListener(e -> {
                 theBoard = new TicTacToeBoard();
@@ -267,7 +258,7 @@ public class TicTacToeGUI extends JFrame{
 
                 player = 1;
 
-                repaint();
+                // repaint();
             });
 
             this.add(restartText);
