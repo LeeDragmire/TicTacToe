@@ -18,6 +18,7 @@ public class TicTacToeGUI extends JFrame{
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.add(new TicTacToePanel());
         this.setVisible(true);
+        this.setCursor(Cursor.CROSSHAIR_CURSOR);
         this.setResizable(false);
     }
 
