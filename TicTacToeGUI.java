@@ -12,8 +12,8 @@ public class TicTacToeGUI extends JFrame{
         theBoard = new TicTacToeBoard();
         
 
-        this.setSize(500, 600);
-        this.setPreferredSize(new Dimension(500, 600));
+        this.setSize(465, 588);
+        this.setPreferredSize(new Dimension(465, 588));
         this.setTitle("Tic Tac Toe");
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.add(new TicTacToePanel());
@@ -59,24 +59,24 @@ public class TicTacToeGUI extends JFrame{
             }
         }
 
-        void drawLine(Graphics g) {
-            Graphics2D g2d = (Graphics2D) g;
-            if (theBoard.winCords(theBoard.getBoard())[0][0] == 0 && theBoard.winCords(theBoard.getBoard())[1][1] == 2) {
-                if (theBoard.getGameStatus() == 1) {
-                    g2d.setColor(Color.RED);
-                } else if (theBoard.getGameStatus() == 2) {
-                    g2d.setColor(Color.BLUE);
-                }
-                g2d.setStroke(new BasicStroke(5));
-                // g2d.drawLine(75, 75, 375, 175);
-            }
-        }
+        // void drawLine(Graphics g) {
+        //     Graphics2D g2d = (Graphics2D) g;
+        //     if (theBoard.winCords(theBoard.getBoard())[0][0] == 0 && theBoard.winCords(theBoard.getBoard())[1][1] == 2) {
+        //         if (theBoard.getGameStatus() == 1) {
+        //             g2d.setColor(Color.RED);
+        //         } else if (theBoard.getGameStatus() == 2) {
+        //             g2d.setColor(Color.BLUE);
+        //         }
+        //         g2d.setStroke(new BasicStroke(5));
+        //         g2d.drawLine(75, 75, 375, 175); 
+        //     }
+        // }
 
 
-        protected void paintComponent(Graphics g) {
-            super.paintComponent(g);
-            drawLine(g);
-        }
+        // protected void paintComponent(Graphics g) {
+        //     super.paintComponent(g);
+        //     drawLine(g);
+        // }
 
         public TicTacToePanel() {
             this.setSize(500, 600);
@@ -107,6 +107,7 @@ public class TicTacToeGUI extends JFrame{
                     bottomMiddle.setEnabled(false);
                     bottomRight.setEnabled(false);
                 }
+                topLeft.paintComponents(getGraphics());
                 // repaint();
             });
             topMiddle.addActionListener(e -> {
