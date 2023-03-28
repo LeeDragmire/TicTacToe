@@ -289,7 +289,7 @@ public class TicTacToeGUI extends JFrame{
             restartButton.setBounds(150, 290, 150, 50);
 
             text.setFont(new Font("Serif", Font.PLAIN, 50));
-            restartText.setFont(new Font("Serif", Font.PLAIN, 40));
+            restartText.setFont(new Font("Serif", Font.PLAIN,35));
             restartButton.setFont(new Font("Serif", Font.PLAIN, 40));
             topLeft.setFont(new Font("Serif", Font.PLAIN, 50));
             topMiddle.setFont(new Font("Serif", Font.PLAIN, 50));
