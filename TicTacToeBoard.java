@@ -79,26 +79,44 @@ public class TicTacToeBoard {
         return board;
     }
 
-    public int[][] winCords(int[][] board) {
+    public int winCords(int[][] board) {
         board = getBoard();
-        int[][] result = new int[2][2];
+        int result = 0;
         if (board[0][0] == 1 && board[0][1] == 1 && board[0][2] == 1) {
-            result = new int[][] {{0,0},{0,2}};
+            result = 1;
         } else if (board[1][0] == 1 && board[1][1] == 1 && board[1][2] == 1) {
-            result = new int[][] {{1,0},{1,2}};
+            result = 2;
         } else if (board[2][0] == 1 && board[2][1] == 1 && board[2][2] == 1) {
-            result = new int[][] {{0,2},{2,2}};
+            result = 3;
         } else if (board[0][0] == 1 && board[1][0] == 1 && board[2][0] == 1) {
-            result = new int[][] {{0,0},{0,2}};
+            result = 4;
         } else if (board[0][1] == 1 && board[1][1] == 1 && board[2][1] == 1) {
-            result = new int[][] {{0,1},{1,2}};
+            result = 5;
         } else if (board[0][2] == 1 && board[1][2] == 1 && board[2][2] == 1) {
-            result = new int[][] {{0,2},{2,2}};
+            result = 6;
         } else if (board[0][0] == 1 && board[1][1] == 1 && board[2][2] == 1) {
-            result = new int[][] {{0,0},{2,2}};
+            result = 7;
         } else if (board[0][2] == 1 && board[1][1] == 1 && board[2][0] == 1) {
-            result = new int[][] {{0,2},{2,0}};
-        }
+            result = 8;
+        } 
+
+        else if (board[0][0] == 2 && board[0][1] == 2 && board[0][2] == 2) {
+            result = 1;
+        } else if (board[1][0] == 2 && board[1][1] == 2 && board[1][2] == 2) {
+            result = 2;
+        } else if (board[2][0] == 2 && board[2][1] == 2 && board[2][2] == 2) {
+            result = 3;
+        } else if (board[0][0] == 2 && board[1][0] == 2 && board[2][0] == 2) {
+            result = 4;
+        } else if (board[0][1] == 2 && board[1][1] == 2 && board[2][1] == 2) {
+            result = 5;
+        } else if (board[0][2] == 2 && board[1][2] == 2 && board[2][2] == 2) {
+            result = 6;
+        } else if (board[0][0] == 2 && board[1][1] == 2 && board[2][2] == 2) {
+            result = 7;
+        } else if (board[0][2] == 2 && board[1][1] == 2 && board[2][0] == 2) {
+            result = 8;
+        } 
         return result;
     }
 }

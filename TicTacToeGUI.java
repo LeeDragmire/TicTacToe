@@ -23,6 +23,17 @@ public class TicTacToeGUI extends JFrame{
     }
 
     public class TicTacToePanel extends JPanel {
+        JButton topLeft = new JButton("");
+        JButton topMiddle = new JButton("");
+        JButton topRight = new JButton("");
+        JButton middleLeft = new JButton("");
+        JButton middle = new JButton("");
+        JButton middleRight = new JButton("");
+        JButton bottomLeft = new JButton("");
+        JButton bottomMiddle = new JButton("");
+        JButton bottomRight = new JButton("");
+        JLabel text = new JLabel("Player 1 place an X");
+
         private void buttonPress(JButton button, JLabel text, TicTacToeBoard theBoard, int r, int c) {
             if (theBoard.isValidMove(r, c)) {
                 theBoard.makeMove(r, c, player);
@@ -60,177 +71,129 @@ public class TicTacToeGUI extends JFrame{
             }
         }
 
-        // void drawLine(Graphics g) {
-        //     Graphics2D g2d = (Graphics2D) g;
-        //     if (theBoard.winCords(theBoard.getBoard())[0][0] == 0 && theBoard.winCords(theBoard.getBoard())[1][1] == 2) {
-        //         if (theBoard.getGameStatus() == 1) {
-        //             g2d.setColor(Color.RED);
-        //         } else if (theBoard.getGameStatus() == 2) {
-        //             g2d.setColor(Color.BLUE);
-        //         }
-        //         g2d.setStroke(new BasicStroke(5));
-        //         g2d.drawLine(75, 75, 375, 175); 
-        //     }
-        // }
+        private void makeClear(JButton button) {
+            button.setContentAreaFilled(false);
+            button.setOpaque(false);
+            button.setBorderPainted(true);
+        }
+
+        private void disabled() {
+            if (theBoard.getGameStatus() == 1 || theBoard.getGameStatus() == 2 || theBoard.getGameStatus() == -1) {
+                topLeft.setEnabled(false);
+                topMiddle.setEnabled(false);
+                topRight.setEnabled(false);
+                middleLeft.setEnabled(false);
+                middle.setEnabled(false);
+                middleRight.setEnabled(false);
+                bottomLeft.setEnabled(false);
+                bottomMiddle.setEnabled(false);
+                bottomRight.setEnabled(false);
+
+                topLeft.setBorder(null);
+                topMiddle.setBorder(null);
+                topRight.setBorder(null);
+                middleLeft.setBorder(null);
+                middle.setBorder(null);
+                middleRight.setBorder(null);
+                bottomLeft.setBorder(null);
+                bottomMiddle.setBorder(null);
+                bottomRight.setBorder(null);
+
+            }
+            repaint();
+        }
+
+        void drawLine(Graphics g) {
+            Graphics2D g2d = (Graphics2D) g;
+            if (theBoard.getGameStatus() == 1) {
+                g2d.setColor(Color.RED);
+            } else {
+                g2d.setColor(Color.BLUE);
+            }
+
+            switch(theBoard.winCords(theBoard.getBoard())) {
+                case 1: 
+                    g2d.setStroke(new BasicStroke(5));
+                    g2d.drawLine(75, 175, 375, 175);
+                    break;
+                case 2:
+                    g2d.setStroke(new BasicStroke(5));
+                    g2d.drawLine(75, 325, 375, 325);
+                    break;
+                case 3:
+                    g2d.setStroke(new BasicStroke(5));
+                    g2d.drawLine(75, 475, 375, 475);
+                    break;
+                case 4:
+                    g2d.setStroke(new BasicStroke(5));
+                    g2d.drawLine(75, 175, 75, 475);
+                    break;
+                case 5:
+                    g2d.setStroke(new BasicStroke(5));
+                    g2d.drawLine(225, 175, 225, 475);
+                    break;
+                case 6:
+                    g2d.setStroke(new BasicStroke(5));
+                    g2d.drawLine(375, 175, 375, 475);
+                    break;
+                case 7:
+                    g2d.setStroke(new BasicStroke(5));
+                    g2d.drawLine(75, 175, 375, 475);
+                    break;
+                case 8:
+                    g2d.setStroke(new BasicStroke(5));
+                    g2d.drawLine(375, 175, 75, 475);
+                    break;
+                default:
+            }
+        }
 
 
-        // protected void paintComponent(Graphics g) {
-        //     super.paintComponent(g);
-        //     drawLine(g);
-        // }
+        protected void paintComponent(Graphics g) {
+            super.paintComponent(g);
+            drawLine(g);
+        }
 
         public TicTacToePanel() {
             this.setSize(500, 600);
             this.setPreferredSize(new Dimension(500, 600));
             this.setLayout(null);
 
-            JButton topLeft = new JButton("");
-            JButton topMiddle = new JButton("");
-            JButton topRight = new JButton("");
-            JButton middleLeft = new JButton("");
-            JButton middle = new JButton("");
-            JButton middleRight = new JButton("");
-            JButton bottomLeft = new JButton("");
-            JButton bottomMiddle = new JButton("");
-            JButton bottomRight = new JButton("");
-            JLabel text = new JLabel("Player 1 place an X");
-
             topLeft.addActionListener(e -> { 
                 buttonPress(topLeft, text, theBoard, 0, 0);
-                if (theBoard.getGameStatus() == 1 || theBoard.getGameStatus() == 2 || theBoard.getGameStatus() == -1) {
-                    topLeft.setEnabled(false);
-                    topMiddle.setEnabled(false);
-                    topRight.setEnabled(false);
-                    middleLeft.setEnabled(false);
-                    middle.setEnabled(false);
-                    middleRight.setEnabled(false);
-                    bottomLeft.setEnabled(false);
-                    bottomMiddle.setEnabled(false);
-                    bottomRight.setEnabled(false);
-                }
-                topLeft.paintComponents(getGraphics());
-                // repaint();
+                disabled();
             });
             topMiddle.addActionListener(e -> {
                 buttonPress(topMiddle, text, theBoard, 0, 1);
-                if (theBoard.getGameStatus() == 1 || theBoard.getGameStatus() == 2 || theBoard.getGameStatus() == -1) {
-                    topLeft.setEnabled(false);
-                    topMiddle.setEnabled(false);
-                    topRight.setEnabled(false);
-                    middleLeft.setEnabled(false);
-                    middle.setEnabled(false);
-                    middleRight.setEnabled(false);
-                    bottomLeft.setEnabled(false);
-                    bottomMiddle.setEnabled(false);
-                    bottomRight.setEnabled(false);
-                }
-                // repaint();
+                disabled();
             });
             topRight.addActionListener(e -> {
                 buttonPress(topRight, text, theBoard, 0, 2);
-                if (theBoard.getGameStatus() == 1 || theBoard.getGameStatus() == 2 || theBoard.getGameStatus() == -1) {
-                    topLeft.setEnabled(false);
-                    topMiddle.setEnabled(false);
-                    topRight.setOpaque(true);
-                    topRight.setEnabled(false);
-                    middleLeft.setEnabled(false);
-                    middle.setEnabled(false);
-                    middleRight.setEnabled(false);
-                    bottomLeft.setEnabled(false);
-                    bottomMiddle.setEnabled(false);
-                    bottomRight.setEnabled(false);
-                }
-                // repaint();
+                disabled();
             });
             middleLeft.addActionListener(e -> {
                 buttonPress(middleLeft, text, theBoard, 1, 0);
-                if (theBoard.getGameStatus() == 1 || theBoard.getGameStatus() == 2 || theBoard.getGameStatus() == -1) {
-                    topLeft.setEnabled(false);
-                    topMiddle.setEnabled(false);
-                    topRight.setEnabled(false);
-                    middleLeft.setEnabled(false);
-                    middle.setEnabled(false);
-                    middleRight.setEnabled(false);
-                    bottomLeft.setEnabled(false);
-                    bottomMiddle.setEnabled(false);
-                    bottomRight.setEnabled(false);
-                }
-                // repaint();
+                disabled();
             });
             middle.addActionListener(e -> {
                 buttonPress(middle, text, theBoard, 1, 1);
-                if (theBoard.getGameStatus() == 1 || theBoard.getGameStatus() == 2 || theBoard.getGameStatus() == -1) {
-                    topLeft.setEnabled(false);
-                    topMiddle.setEnabled(false);
-                    topRight.setEnabled(false);
-                    middleLeft.setEnabled(false);
-                    middle.setEnabled(false);
-                    middleRight.setEnabled(false);
-                    bottomLeft.setEnabled(false);
-                    bottomMiddle.setEnabled(false);
-                    bottomRight.setEnabled(false);
-                }
-                // repaint();
+                disabled();
             });
             middleRight.addActionListener(e -> {
                 buttonPress(middleRight, text, theBoard, 1, 2);
-                if (theBoard.getGameStatus() == 1 || theBoard.getGameStatus() == 2 || theBoard.getGameStatus() == -1) {
-                    topLeft.setEnabled(false);
-                    topMiddle.setEnabled(false);
-                    topRight.setEnabled(false);
-                    middleLeft.setEnabled(false);
-                    middle.setEnabled(false);
-                    middleRight.setEnabled(false);
-                    bottomLeft.setEnabled(false);
-                    bottomMiddle.setEnabled(false);
-                    bottomRight.setEnabled(false);
-                }
-                // repaint();
+                disabled();
             });
             bottomLeft.addActionListener(e -> {
                 buttonPress(bottomLeft, text, theBoard, 2, 0);
-                if (theBoard.getGameStatus() == 1 || theBoard.getGameStatus() == 2 || theBoard.getGameStatus() == -1) {
-                    topLeft.setEnabled(false);
-                    topMiddle.setEnabled(false);
-                    topRight.setEnabled(false);
-                    middleLeft.setEnabled(false);
-                    middle.setEnabled(false);
-                    middleRight.setEnabled(false);
-                    bottomLeft.setEnabled(false);
-                    bottomMiddle.setEnabled(false);
-                    bottomRight.setEnabled(false);
-                }
-                // repaint();
+                disabled();
             });
             bottomMiddle.addActionListener(e -> {
                 buttonPress(bottomMiddle, text, theBoard, 2, 1);
-                if (theBoard.getGameStatus() == 1 || theBoard.getGameStatus() == 2 || theBoard.getGameStatus() == -1) {
-                    topLeft.setEnabled(false);
-                    topMiddle.setEnabled(false);
-                    topRight.setEnabled(false);
-                    middleLeft.setEnabled(false);
-                    middle.setEnabled(false);
-                    middleRight.setEnabled(false);
-                    bottomLeft.setEnabled(false);
-                    bottomMiddle.setEnabled(false);
-                    bottomRight.setEnabled(false);
-                }
-                // repaint();
+                disabled();
             });
             bottomRight.addActionListener(e -> {
                 buttonPress(bottomRight, text, theBoard, 2, 2);
-                if (theBoard.getGameStatus() == 1 || theBoard.getGameStatus() == 2 || theBoard.getGameStatus() == -1) {
-                    topLeft.setEnabled(false);
-                    topMiddle.setEnabled(false);
-                    topRight.setEnabled(false);
-                    middleLeft.setEnabled(false);
-                    middle.setEnabled(false);
-                    middleRight.setEnabled(false);
-                    bottomLeft.setEnabled(false);
-                    bottomMiddle.setEnabled(false);
-                    bottomRight.setEnabled(false);
-                }
-                // repaint();
+                disabled();
             });
             restartButton.addActionListener(e -> {
                 theBoard = new TicTacToeBoard();
@@ -255,12 +218,22 @@ public class TicTacToeGUI extends JFrame{
                 bottomMiddle.setEnabled(true);
                 bottomRight.setEnabled(true);
 
+                topLeft.setBorder(BorderFactory.createTitledBorder("Earned Border"));
+                topMiddle.setBorder(BorderFactory.createTitledBorder("Earned Border"));
+                topRight.setBorder(BorderFactory.createTitledBorder("Earned Border"));
+                middleLeft.setBorder(BorderFactory.createTitledBorder("Earned Border"));
+                middle.setBorder(BorderFactory.createTitledBorder("Earned Border"));
+                middleRight.setBorder(BorderFactory.createTitledBorder("Earned Border"));
+                bottomLeft.setBorder(BorderFactory.createTitledBorder("Earned Border"));
+                bottomMiddle.setBorder(BorderFactory.createTitledBorder("Earned Border"));
+                bottomRight.setBorder(BorderFactory.createTitledBorder("Earned Border"));
+
                 restartText.setVisible(false);
                 restartButton.setVisible(false);
 
                 player = 1;
 
-                // repaint();
+                repaint();
             });
 
             this.add(restartText);
@@ -275,6 +248,17 @@ public class TicTacToeGUI extends JFrame{
             this.add(bottomLeft);
             this.add(bottomMiddle);
             this.add(bottomRight);
+
+            makeClear(topLeft);
+            makeClear(topMiddle);
+            makeClear(topRight);
+            makeClear(middleLeft);
+            makeClear(middle);
+            makeClear(middleRight);
+            makeClear(bottomLeft);
+            makeClear(bottomMiddle);
+            makeClear(bottomRight);
+
 
             topLeft.setBounds(0, 100, 150, 150);
             topMiddle.setBounds(150, 100, 150, 150);
