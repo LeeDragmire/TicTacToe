@@ -148,7 +148,6 @@ public class TicTacToeGUI extends JFrame{
             }
         }
 
-
         protected void paintComponent(Graphics g) {
             super.paintComponent(g);
             drawLine(g);
